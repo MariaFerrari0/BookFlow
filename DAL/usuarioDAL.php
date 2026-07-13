@@ -1,8 +1,8 @@
 <?php
 namespace DAL;
 
-include_once $_SERVER['DOCUMENT_ROOT'] . "/Bookflow/dal/conexao.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/Bookflow/model/usuario.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/BookFlow/dal/conexao.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/BookFlow/model/usuario.php";
 
 use MODEL\Usuario;
 
@@ -10,13 +10,14 @@ class UsuarioDAL {
 
     public function cadastrar(Usuario $usuario): bool {
         $pdo = \Conexao::getConexao();
-        $sql = "INSERT INTO usuarios (nome, email, senha, cargo) VALUES (:nome, :email, :senha, :cargo)";
+        // Removido "cargo" da query de inserção
+        $sql = "INSERT INTO usuarios (nome, email, senha) VALUES (:nome, :email, :senha)";
         try {
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(':nome', $usuario->getNome());
             $stmt->bindValue(':email', $usuario->getEmail());
-            $stmt->bindValue(':senha', md5($usuario->getSenha())); // Mantendo md5 conforme seu padrão anterior
-            $stmt->bindValue(':cargo', $usuario->getCargo());
+            $stmt->bindValue(':senha', md5($usuario->getSenha())); // Mantendo o padrão MD5 que você já utilizava
+            
             return $stmt->execute();
         } catch (\PDOException $e) {
             return false;
@@ -32,19 +33,19 @@ class UsuarioDAL {
             $stmt->execute([$email, $senha_criptografada]);
             $row = $stmt->fetch();
             if ($row) {
+                // Instancia o objeto sem passar o parâmetro de cargo (que não existe na sua MODEL)
                 return new Usuario(
                     $row['id_usuario'],
                     $row['nome'],
                     $row['email'],
                     $row['senha'],
-                    $row['cargo'],
                     $row['criado_em']
                 );
             }
-            return null;
         } catch (\PDOException $e) {
             return null;
         }
+        return null;
     }
 
     public function listar(): array {
@@ -60,7 +61,6 @@ class UsuarioDAL {
                     $row['nome'],
                     $row['email'],
                     $row['senha'],
-                    $row['cargo'],
                     $row['criado_em']
                 );
             }
@@ -81,14 +81,13 @@ class UsuarioDAL {
                     $row['nome'],
                     $row['email'],
                     $row['senha'],
-                    $row['cargo'],
                     $row['criado_em']
                 );
             }
-            return null;
         } catch (\PDOException $e) {
             return null;
         }
+        return null;
     }
 
     public function buscarPorEmail(string $email): ?Usuario {
@@ -104,25 +103,25 @@ class UsuarioDAL {
                     $row['nome'],
                     $row['email'],
                     $row['senha'],
-                    $row['cargo'],
                     $row['criado_em']
                 );
             }
-            return null;
         } catch (\PDOException $e) {
             return null;
         }
+        return null;
     }
 
     public function atualizar(Usuario $usuario): bool {
         $pdo = \Conexao::getConexao();
-        $sql = "UPDATE usuarios SET nome = :nome, email = :email, cargo = :cargo WHERE id_usuario = :id_usuario";
+        // Removida a alteração da coluna "cargo" no UPDATE
+        $sql = "UPDATE usuarios SET nome = :nome, email = :email WHERE id_usuario = :id_usuario";
         try {
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(':nome', $usuario->getNome());
             $stmt->bindValue(':email', $usuario->getEmail());
-            $stmt->bindValue(':cargo', $usuario->getCargo());
             $stmt->bindValue(':id_usuario', $usuario->getIdUsuario(), \PDO::PARAM_INT);
+            
             return $stmt->execute();
         } catch (\PDOException $e) {
             return false;
@@ -151,5 +150,4 @@ class UsuarioDAL {
         }
     }
 }
-?>
 ?>
