@@ -8,6 +8,7 @@ class Livro {
     private int $paginas_total;
     private string $status;
     private int $paginasLidas;
+    private ?string $comentarios; // <-- ADICIONADO: Propriedade para guardar o diário de leitura
 
     public function __construct(
         ?int $id, 
@@ -16,7 +17,8 @@ class Livro {
         string $autor, 
         int $paginas_total, 
         string $status = 'Quero ler',
-        int $paginasLidas = 0
+        int $paginasLidas = 0,
+        ?string $comentarios = '' // <-- ADICIONADO: Parâmetro opcional no construtor
     ) {
         $this->id = $id;
         $this->usuario_id = $usuario_id;
@@ -25,6 +27,7 @@ class Livro {
         $this->paginas_total = $paginas_total;
         $this->status = $status;
         $this->paginasLidas = $paginasLidas;
+        $this->comentarios = $comentarios; // <-- ADICIONADO: Inicializa os comentários
     }
 
     // Getters e Setters
@@ -74,6 +77,15 @@ class Livro {
 
     public function setPaginasLidas(int $paginasLidas): void {
         $this->paginasLidas = $paginasLidas;
+    }
+
+    // <-- ADICIONADOS: Getter e Setter para o Diário de Leitura
+    public function getComentarios(): ?string {
+        return $this->comentarios;
+    }
+
+    public function setComentarios(?string $comentarios): void {
+        $this->comentarios = $comentarios;
     }
 
     // Método para calcular a porcentagem de leitura do livro

@@ -11,7 +11,6 @@ class LivroDAL {
 
     // Método para cadastrar um novo livro no banco de dados
     public function cadastrar(Livro $livro): bool {
-        // Ajustado de acordo com a sua tabela real: usa 'paginas'
         $sql = "INSERT INTO livros (usuario_id, titulo, autor, paginas, status) 
                 VALUES (:usuario_id, :titulo, :autor, :paginas, :status)";
         
@@ -35,18 +34,45 @@ class LivroDAL {
         
         $livros = [];
         while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            // AJUSTE: Passando o campo 'comentarios' diretamente no construtor
             $livros[] = new Livro(
                 (int)$linha['id'],
                 (int)$linha['usuario_id'],
                 $linha['titulo'] ?? 'Sem Título',
                 $linha['autor'] ?? 'Autor Desconhecido',
-                (int)($linha['paginas'] ?? 0), // Usando 'paginas' vindo do banco
+                (int)($linha['paginas'] ?? 0),
                 $linha['status'] ?? 'Quero ler',
-                (int)($linha['paginas_lidas'] ?? 0) // <-- ADICIONADO: Puxa o progresso do banco!
+                (int)($linha['paginas_lidas'] ?? 0),
+                $linha['comentarios'] ?? ''
             );
         }
         
         return $livros;
+    }
+
+    // Método para buscar um único livro (necessário para o Controller validar a segurança)
+    public function buscarPorId(int $id): ?Livro {
+        $sql = "SELECT * FROM livros WHERE id = :id";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $linha = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!$linha) {
+            return null;
+        }
+
+        // AJUSTE: Passando o campo 'comentarios' diretamente no construtor
+        return new Livro(
+            (int)$linha['id'],
+            (int)$linha['usuario_id'],
+            $linha['titulo'] ?? 'Sem Título',
+            $linha['autor'] ?? 'Autor Desconhecido',
+            (int)($linha['paginas'] ?? 0),
+            $linha['status'] ?? 'Quero ler',
+            (int)($linha['paginas_lidas'] ?? 0),
+            $linha['comentarios'] ?? ''
+        );
     }
 
     // Método para atualizar apenas o status de um livro específico
@@ -78,5 +104,53 @@ class LivroDAL {
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->bindValue(':usuario_id', $usuario_id, PDO::PARAM_INT);
         return $stmt->execute();
+    }
+
+    // Método para atualizar o texto do diário de leitura (comentários)
+    public function atualizarComentarios(int $id, string $comentarios, int $usuario_id): bool {
+        $sql = "UPDATE livros SET comentarios = :comentarios WHERE id = :id AND usuario_id = :usuario_id";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(':comentarios', $comentarios, PDO::PARAM_STR);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->bindValue(':usuario_id', $usuario_id, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+    // Insere uma nova anotação/comentário na tabela diario_leitura
+    public function adicionarAnotacaoDiario(int $livro_id, string $anotacao, int $pagina_atual = 0, int $paginas_lidas = 0): bool {
+        $sql = "INSERT INTO diario_leitura (livro_id, data_registro, paginas_lidas, pagina_atual, anotacao) 
+                VALUES (:livro_id, :data_registro, :paginas_lidas, :pagina_atual, :anotacao)";
+        
+        $stmt = $this->conexao->prepare($sql);
+        
+        $data_hoje = date('Y-m-d'); // Captura o dia atual automaticamente
+        
+        $stmt->bindValue(':livro_id', $livro_id, PDO::PARAM_INT);
+        $stmt->bindValue(':data_registro', $data_hoje, PDO::PARAM_STR);
+        $stmt->bindValue(':paginas_lidas', $paginas_lidas, PDO::PARAM_INT);
+        $stmt->bindValue(':pagina_atual', $pagina_atual, PDO::PARAM_INT);
+        $stmt->bindValue(':anotacao', $anotacao, PDO::PARAM_STR);
+        
+        return $stmt->execute();
+    }
+
+    // Lista todas as anotações registradas para o livro ordenadas da mais nova para a mais antiga
+    public function listarDiarioDoLivro(int $livro_id): array {
+        $sql = "SELECT * FROM diario_leitura WHERE livro_id = :livro_id ORDER BY id DESC";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(':livro_id', $livro_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $historico = [];
+        while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $historico[] = new Diario(
+                (int)$linha['id'],
+                (int)$linha['livro_id'],
+                $linha['data_registro'],
+                (int)$linha['paginas_lidas'],
+                (int)$linha['pagina_atual'],
+                $linha['anotacao']
+            );
+        }
+        return $historico;
     }
 }

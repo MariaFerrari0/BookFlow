@@ -495,33 +495,52 @@ nav {
 .register-text a:hover {
   text-decoration: underline;
 }
+
 /* ==========================================================================
-   TIMER POMODORO (TEMA DARK NEON)
+   TIMER POMODORO (TEMA DARK NEON ROXO)
    ========================================================================== */
 .pomodoro-card {
   background-color: #111827 !important;
-  border: 1px solid #1f2937 !important;
+  border: 1px solid #a855f7 !important; /* Borda Roxa Neon */
   border-radius: 16px !important;
-  padding: 20px !important;
+  padding: 24px !important;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25) !important;
+  box-shadow:
+    0 0 15px rgba(168, 85, 247, 0.25),
+    0 10px 15px -3px rgba(0, 0, 0, 0.3) !important; /* Brilho Neon */
   position: relative;
   overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.pomodoro-header span {
+  text-shadow: 0 0 8px rgba(168, 85, 247, 0.6); /* Brilho no texto de Status */
+}
+
+/* Números grandes em destaque com brilho sutil */
+.pomodoro-time {
+  font-size: 3.5rem !important;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 800;
+  margin: 15px 0 !important;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
 }
 
 .pomodoro-controls {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
+/* Botões com estilo Neon circular */
 .pomodoro-controls button {
-  background: rgba(255, 255, 255, 0.03) !important;
-  border: 1px solid #374151 !important;
+  background: rgba(168, 85, 247, 0.05) !important;
+  border: 1px solid rgba(168, 85, 247, 0.4) !important;
   border-radius: 50% !important;
-  width: 46px !important;
-  height: 46px !important;
+  width: 50px !important;
+  height: 50px !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -530,12 +549,155 @@ nav {
 }
 
 .pomodoro-controls button:hover {
-  background: rgba(168, 85, 247, 0.1) !important;
-  border-color: #a855f7 !important;
-  transform: scale(1.05);
+  background: rgba(168, 85, 247, 0.2) !important;
+  border-color: #c084fc !important;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.6) !important; /* Brilho ao passar o mouse */
+  transform: translateY(-2px);
 }
 
 .pomodoro-controls button i {
-  font-size: 1.6rem !important;
+  font-size: 1.8rem !important;
   margin: 0 !important;
+}
+
+/* ==========================================================================
+   CARDS DE ESTATÍSTICAS (TEMA NEON ROXO)
+   ========================================================================== */
+.stat-card {
+  background-color: #111827 !important;
+  border: 1px solid rgba(168, 85, 247, 0.2) !important; /* Borda roxa bem sutil por padrão */
+  border-radius: 16px !important;
+  padding: 24px !important;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25) !important;
+  transition: all 0.3s ease-in-out !important; /* Transição suave para o brilho */
+}
+
+/* Efeito Neon ao passar o mouse (Hover) */
+.stat-card:hover {
+  transform: translateY(-4px); /* Dá uma leve flutuada */
+  border-color: #a855f7 !important; /* Borda fica totalmente roxa neon */
+  box-shadow:
+    0 0 20px rgba(168, 85, 247, 0.4),
+    0 10px 20px rgba(0, 0, 0, 0.4) !important; /* Brilho neon roxo */
+}
+
+/* Brilho neon sutil para os números gigantes dentro dos cards */
+.stat-card h5,
+.stat-card h3,
+.stat-card .card-title {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Realce sutil nos ícones para acompanhar o tema */
+.stat-card i.material-icons {
+  filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.3));
+}
+
+/* ==========================================================================
+   EFEITOS NEON PARA LOGO E TEXTOS (GLOW EFFECT)
+   ========================================================================== */
+
+/* Neon Roxo para Textos (como o "Flow" ou títulos) */
+.text-neon-purple {
+  color: #ffffff !important;
+  text-shadow:
+    0 0 5px rgba(168, 85, 247, 0.5),
+    0 0 10px rgba(168, 85, 247, 0.8),
+    0 0 20px rgba(168, 85, 247, 1) !important;
+}
+
+/* Neon Azul/Indigo para Textos (como "Book" ou links principais) */
+.text-neon-blue {
+  color: #ffffff !important;
+  text-shadow:
+    0 0 5px rgba(99, 102, 241, 0.5),
+    0 0 10px rgba(99, 102, 241, 0.8),
+    0 0 20px rgba(99, 102, 241, 1) !important;
+}
+
+/* Neon sutil para os textos comuns de boas-vindas e labels */
+.text-neon-subtle {
+  color: #e9d5ff !important; /* Lilás claro */
+  text-shadow: 0 0 8px rgba(168, 85, 247, 0.4) !important;
+}
+
+/* Efeito Neon na Logomarca (Texto + Ícone de Livro/Material Icons) */
+.logo-neon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Brilho no ícone de livro da Logo */
+.logo-neon i.material-icons,
+.logo-neon img {
+  filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.95)) !important;
+}
+
+/* Brilho nas letras da Logo */
+.logo-neon-text {
+  font-weight: 800 !important;
+  letter-spacing: 0.5px;
+}
+
+.logo-neon-text .brand-book {
+  color: #ffffff !important;
+  text-shadow:
+    0 0 4px rgba(99, 102, 241, 0.6),
+    0 0 12px rgba(99, 102, 241, 0.9) !important;
+}
+
+.logo-neon-text .brand-flow {
+  color: #ffffff !important;
+  text-shadow:
+    0 0 4px rgba(168, 85, 247, 0.6),
+    0 0 12px rgba(168, 85, 247, 0.9) !important;
+}
+
+/* ==========================================================================
+   BOTÕES PERSONALIZADOS COM TEMA NEON ROXO (GLOW BUTTONS)
+   ========================================================================== */
+
+/* Botão "Adicionar Livro" */
+.btn-neon-purple {
+  background-color: rgba(168, 85, 247, 0.1) !important;
+  border: 1px solid #a855f7 !important;
+  color: #ffffff !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.3) !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+.btn-neon-purple:hover {
+  background-color: #a855f7 !important;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.7) !important;
+  transform: translateY(-2px);
+}
+
+.btn-neon-purple i {
+  color: #ffffff !important;
+}
+
+/* Botão do Modal "Salvar Livro" */
+.btn-modal-save {
+  background-color: rgba(168, 85, 247, 0.1) !important;
+  border: 1px solid #a855f7 !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.2) !important;
+  transition: all 0.3s ease-in-out !important;
+  text-transform: uppercase !important;
+}
+
+.btn-modal-save:hover {
+  background-color: #a855f7 !important;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.6) !important;
+  transform: translateY(-1px);
 }
