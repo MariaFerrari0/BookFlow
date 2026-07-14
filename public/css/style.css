@@ -1,40 +1,541 @@
-/* Configuração do Tema Escuro do BookFlow */
+/* ==========================================================================
+   RESET & ESTILOS GLOBAIS
+   ========================================================================== */
 body {
-  background-color: #0f172a;
-  color: #ffffff;
+  display: block;
+  background-color: #0b0f19 !important; /* Azul espacial profundo */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #f1f5f9;
+}
+
+/* ==========================================================================
+   MENU SUPERIOR (NAVBAR)
+   ========================================================================== */
+nav {
+  background-color: #111827 !important; /* Cinza grafite escuro */
+  border-bottom: 1px solid #1f2937;
+  box-shadow: none !important;
+}
+
+.nav-wrapper {
+  padding: 0 30px;
+}
+
+.brand-logo {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   PAINEL DE BOAS-VINDAS (WELCOME PANEL)
+   ========================================================================== */
+.welcome-panel {
+  background: linear-gradient(135deg, #2e1065 0%, #581c87 100%) !important;
+  border: 1px solid #a855f7 !important;
+  border-radius: 16px !important;
+  padding: 30px !important;
+  margin-bottom: 30px;
+  box-shadow:
+    0 0 20px rgba(168, 85, 247, 0.25),
+    0 10px 15px -3px rgba(0, 0, 0, 0.3) !important;
+}
+
+.welcome-panel h4 {
+  color: #ffffff !important;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.welcome-panel p {
+  color: #ddd6fe !important; /* Roxo clarinho bem legível */
+}
+
+/* ==========================================================================
+   CARDS DE ESTATÍSTICAS (STATS)
+   ========================================================================== */
+.stat-card {
+  background-color: #111827 !important;
+  border: 1px solid #1f2937 !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+.stat-card i {
+  font-size: 3rem !important;
+  margin-bottom: 8px;
+}
+
+.stat-card h5 {
+  font-weight: 800 !important;
+  color: #ffffff !important; /* Texto branco bem nítido */
+  margin: 5px 0 !important;
+  font-size: 2rem !important;
+}
+
+.stat-card p {
+  color: #9ca3af !important; /* Cinza médio legível */
+  margin: 0 !important;
+  font-size: 0.95rem;
+}
+
+/* Cores específicas de ícones nas estatísticas */
+.icon-indigo {
+  color: #818cf8 !important;
+}
+.icon-orange {
+  color: #fb923c !important;
+}
+.icon-green {
+  color: #4ade80 !important;
+}
+
+/* ==========================================================================
+   ESTANTE DE LIVROS (GRID & CARDS)
+   ========================================================================== */
+.estante-titulo {
+  color: #ffffff !important;
+  margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Cards de Livros (Tema Dark) */
+.book-card {
+  background-color: #111827 !important; /* Mantém o fundo escuro do card */
+  border: 1px solid #1f2937 !important;
+  border-radius: 14px !important;
+  min-height: 250px;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2) !important;
+  transition:
+    transform 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+/* Hover nos Cards de Livros com efeito Neon Roxo */
+.book-card:hover {
+  transform: translateY(-4px);
+  border-color: #a855f7 !important;
+  box-shadow:
+    0 0 15px rgba(168, 85, 247, 0.4),
+    0 12px 20px -5px rgba(0, 0, 0, 0.5) !important;
+}
+
+.book-card .card-content {
+  padding: 24px !important;
+}
+
+.book-card .card-title {
+  font-size: 1.3rem !important;
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+  margin-bottom: 12px !important;
+  color: #ffffff !important; /* Título do livro em branco */
+}
+
+.book-card p {
+  color: #9ca3af !important; /* Textos de informação em cinza claro */
+  font-size: 0.95rem;
+  margin: 8px 0 !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.book-card p i {
+  font-size: 1.1rem !important;
+  color: #c084fc !important; /* Ícones principais em Roxo Neon */
+}
+
+/* Rodapé do card (Status de Leitura) */
+.book-card .card-action {
+  background-color: #151e2e !important;
+  border-top: 1px solid #1f2937 !important;
+  padding: 16px 24px !important;
+}
+
+/* Estilização do Select do Status */
+.status-select {
+  background-color: #0b0f19 !important;
+  color: #f1f5f9 !important;
+  border: 1px solid #374151 !important;
+  border-radius: 8px !important;
+  margin-top: 6px;
+  padding: 8px 12px !important;
+  display: block;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  height: auto !important; /* Corrige altura padrão do Materialize */
+}
+
+.status-select:focus {
+  border-color: #a855f7 !important;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+}
+
+/* Inputs de Progresso de Páginas */
+.progress-form {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-form input[type="number"] {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #374151 !important;
+  color: #ffffff !important; /* Texto do input visível */
+  width: 60px !important;
+  height: 30px !important;
+  margin: 0 !important;
+  text-align: center;
+}
+
+.progress-form input[type="number"]:focus {
+  border-bottom: 1px solid #a855f7 !important;
+  box-shadow: 0 1px 0 0 #a855f7 !important;
+}
+
+.progress-form button {
+  background: none;
+  border: none;
+  color: #a855f7;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.progress-form button:hover {
+  color: #c084fc;
+}
+
+/* Barra de Progresso Neon */
+.progress-container {
+  background-color: #1f2937; /* Fundo escuro da barra */
+  border-radius: 8px;
+  height: 8px;
+  width: 100%;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: linear-gradient(
+    90deg,
+    #818cf8,
+    #a855f7
+  ) !important; /* Gradiente brilhante */
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.4s ease;
+}
+
+/* Sem livros cadastrados */
+.empty-shelf {
+  background-color: #111827 !important;
+  border: 2px dashed #1f2937 !important;
+  padding: 50px 20px !important;
+  border-radius: 12px !important;
+  text-align: center;
+}
+
+.empty-shelf i {
+  font-size: 4rem !important;
+  color: #4b5563 !important;
+  margin-bottom: 15px;
+}
+
+.empty-shelf p {
+  color: #9ca3af !important;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* ==========================================================================
+   MODAIS (CADASTRO DE LIVROS, ETC)
+   ========================================================================== */
+.modal {
+  background-color: #111827 !important;
+  border: 1px solid #1f2937 !important;
+  border-radius: 16px !important;
+  max-width: 480px;
+}
+
+.modal .modal-content {
+  padding: 30px !important;
+}
+
+.modal h4 {
+  color: #ffffff !important;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.modal p {
+  color: #9ca3af !important;
+}
+
+.modal input {
+  color: #ffffff !important;
+  border-bottom: 1px solid #374151 !important;
+}
+
+.modal input:focus {
+  border-bottom: 1px solid #a855f7 !important;
+  box-shadow: 0 1px 0 0 #a855f7 !important;
+}
+
+.modal label {
+  color: #9ca3af !important;
+}
+
+.modal label.active {
+  color: #c084fc !important;
+}
+
+.modal-footer {
+  background-color: #151e2e !important;
+  border-top: 1px solid #1f2937 !important;
+  padding: 15px 30px 25px 30px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto !important;
+}
+
+/* ==========================================================================
+   TELA DE LOGIN (TEMA DARK NEON)
+   ========================================================================== */
+.login-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
+  background-color: #0b0f19 !important; /* Mantém o azul escuro de fundo */
+  margin: 0;
+}
+
+.login-container {
+  display: flex;
+  max-width: 900px;
+  width: 100%;
+  min-height: 500px;
+  background-color: #111827 !important; /* Fundo cinza escuro do container */
+  border: 1px solid #1f2937;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(168, 85, 247, 0.15);
+}
+
+/* Painel da Esquerda (Marca/Sidebar) */
+.login-sidebar {
+  flex: 1;
+  background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 100%) !important;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 40px;
+  text-align: center;
+  border-right: 1px solid #1f2937;
 }
 
-/* Card de Login */
-.login-card {
-  background-color: #1e293b !important;
-  border-radius: 16px !important;
-  overflow: hidden;
-  border: 1px solid #334155;
+.login-sidebar i {
+  font-size: 5rem !important;
+  color: #a855f7 !important; /* Ícone do livro em Roxo Neon */
+  margin-bottom: 20px;
 }
 
-/* Ajustes para os inputs no Tema Escuro */
-.input-field input[type="email"]:focus,
-.input-field input[type="password"]:focus {
-  border-bottom: 1px solid #3f51b5 !important;
-  box-shadow: 0 1px 0 0 #3f51b5 !important;
+.login-sidebar h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  color: #ffffff;
 }
 
-.input-field input[type="email"],
-.input-field input[type="password"] {
+.login-sidebar h2 span {
+  color: #a855f7; /* Roxo brilhante no "Flow" */
+}
+
+.login-sidebar p {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  margin: 0;
+  max-width: 280px;
+}
+
+/* Formulário da Direita */
+.login-form-wrapper {
+  flex: 1;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #111827 !important;
+}
+
+.login-form-wrapper h4 {
   color: #ffffff !important;
-  border-bottom: 1px solid #475569 !important;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  font-size: 1.8rem;
 }
 
-.input-field label {
-  color: #94a3b8 !important;
+.login-form-wrapper p.subtitle {
+  color: #9ca3af !important;
+  margin-bottom: 30px;
 }
 
-.input-field input[type="email"]:focus + label,
-.input-field input[type="password"]:focus + label {
-  color: #3f51b5 !important;
+/* Campos de entrada customizados para o Login */
+.login-form-wrapper .input-field {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.login-form-wrapper .input-field i.prefix {
+  color: #9ca3af !important;
+  font-size: 1.5rem;
+  transition: color 0.2s;
+}
+
+.login-form-wrapper .input-field input {
+  color: #ffffff !important;
+  border-bottom: 1px solid #374151 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.login-form-wrapper .input-field input:focus {
+  border-bottom: 1px solid #a855f7 !important;
+  box-shadow: 0 1px 0 0 #a855f7 !important;
+}
+
+.login-form-wrapper .input-field input:focus + label {
+  color: #c084fc !important;
+}
+
+.login-form-wrapper .input-field input:focus ~ i.prefix {
+  color: #c084fc !important;
+}
+
+.login-form-wrapper .input-field label {
+  color: #9ca3af !important;
+}
+
+.login-form-wrapper .input-field label.active {
+  color: #c084fc !important;
+}
+
+/* Botão de Submit Principal */
+.btn-login {
+  background: linear-gradient(90deg, #6366f1, #a855f7) !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  width: 100%;
+  height: 50px !important;
+  line-height: 50px !important;
+  font-size: 1.1rem !important;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3) !important;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s !important;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5) !important;
+}
+
+/* Links do Formulário */
+.login-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.login-links a {
+  color: #a855f7 !important;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.login-links a:hover {
+  color: #c084fc !important;
+  text-decoration: underline;
+}
+
+.register-text {
+  text-align: center;
+  margin-top: 30px;
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+.register-text a {
+  color: #c084fc !important;
+  font-weight: 700;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+/* ==========================================================================
+   TIMER POMODORO (TEMA DARK NEON)
+   ========================================================================== */
+.pomodoro-card {
+  background-color: #111827 !important;
+  border: 1px solid #1f2937 !important;
+  border-radius: 16px !important;
+  padding: 20px !important;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.pomodoro-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.pomodoro-controls button {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid #374151 !important;
+  border-radius: 50% !important;
+  width: 46px !important;
+  height: 46px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pomodoro-controls button:hover {
+  background: rgba(168, 85, 247, 0.1) !important;
+  border-color: #a855f7 !important;
+  transform: scale(1.05);
+}
+
+.pomodoro-controls button i {
+  font-size: 1.6rem !important;
+  margin: 0 !important;
 }
