@@ -1,0 +1,40 @@
+/* Configuração do Tema Escuro do BookFlow */
+body {
+  background-color: #0f172a;
+  color: #ffffff;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card de Login */
+.login-card {
+  background-color: #1e293b !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  border: 1px solid #334155;
+}
+
+/* Ajustes para os inputs no Tema Escuro */
+.input-field input[type="email"]:focus,
+.input-field input[type="password"]:focus {
+  border-bottom: 1px solid #3f51b5 !important;
+  box-shadow: 0 1px 0 0 #3f51b5 !important;
+}
+
+.input-field input[type="email"],
+.input-field input[type="password"] {
+  color: #ffffff !important;
+  border-bottom: 1px solid #475569 !important;
+}
+
+.input-field label {
+  color: #94a3b8 !important;
+}
+
+.input-field input[type="email"]:focus + label,
+.input-field input[type="password"]:focus + label {
+  color: #3f51b5 !important;
+}

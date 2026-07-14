@@ -1,111 +1,80 @@
-<?php
-// Ativa exibição de erros
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-session_start();
-
-// Se o usuário já estiver logado, manda direto para o dashboard
-if (isset($_SESSION['usuario_id'])) {
-    header("Location: dashboard.php");
-    exit;
-}
-
-$mensagem_erro = "";
-
-// Verifica se veio uma confirmação de cadastro realizado
-if (isset($_GET['cadastro']) && $_GET['cadastro'] === 'sucesso') {
-    $mensagem_sucesso = "Cadastro realizado com sucesso! Faça login abaixo.";
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    include_once $_SERVER['DOCUMENT_ROOT'] . "/BookFlow/CONTROLLERS/UsuarioController.php";
-    $usuarioController = new \CONTROLLER\UsuarioController();
-
-    $email = trim($_POST['email'] ?? '');
-    $senha = trim($_POST['senha'] ?? '');
-
-    if (!empty($email) && !empty($senha)) {
-        // Efetua o login na Controller
-        $usuario = $usuarioController->login($email, $senha);
-
-        if ($usuario) {
-            // Guarda as informações básicas na sessão do navegador
-            $_SESSION['usuario_id'] = $usuario->getIdUsuario();
-            $_SESSION['usuario_nome'] = $usuario->getNome();
-            $_SESSION['usuario_email'] = $usuario->getEmail();
-
-            // Redireciona para o Dashboard
-            header("Location: dashboard.php");
-            exit;
-        } else {
-            $mensagem_erro = "E-mail ou palavra-passe incorretos.";
-        }
-    } else {
-        $mensagem_erro = "Por favor, preencha todos os campos.";
-    }
-}
-?>
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrar - Bookflow</title>
+    <title>BookFlow - Login</title>
+    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../VIEW/assets/login.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <body>
 
-<div class="login-container">
-    <div class="login-box">
-        <div class="logo-area">
-            <i class="material-icons logo-icon">auto_stories</i>
-            <h2>Bookflow</h2>
-        </div>
-        <p class="subtitle">Faça login para gerir as suas leituras</p>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m10 offset-m1 l8 offset-l2">
+                <div class="card login-card valing-wrapper">
+                    <div class="row" style="margin-bottom: 0;">
+                        
+                        <div class="col m6 hide-on-small-only indigo darken-4 white-text valign-wrapper" style="min-height: 500px; flex-direction: column; justify-content: center; padding: 40px;">
+                            <i class="material-icons large">auto_stories</i>
+                            <h4 class="center-align" style="font-weight: 800;">BookFlow</h4>
+                            <p class="center-align grey-text text-lighten-2">Sua jornada de leitura organizada e inteligente.</p>
+                        </div>
 
-        <?php if (!empty($mensagem)): ?>
-            <div class="alert <?php echo $status; ?>">
-                <i class="material-icons alert-icon">
-                    <?php echo $status === 'sucesso' ? 'check_circle' : 'error'; ?>
-                </i>
-                <span><?php echo $mensagem; ?></span>
-            </div>
-        <?php endif; ?>
+                        <div class="col s12 m6" style="padding: 40px; min-height: 500px;">
+                            <h5 class="white-text" style="font-weight: 700; margin-bottom: 5px;">Bem-vindo de volta!</h5>
+                            <p class="grey-text text-darken-1" style="margin-top: 0; margin-bottom: 30px;">Faça login para continuar</p>
 
-        <form action="login.php" method="POST" id="formLogin">
-            <div class="form-group">
-                <label for="email">E-mail</label>
-                <div class="input-with-icon">
-                    <i class="material-icons input-icon">email</i>
-                    <input type="email" id="email" name="email" placeholder="Ex: maria@email.com" required>
+                            <?php if (isset($_GET['erro'])): ?>
+                                <div class="card-panel red darken-4 white-text" style="padding: 10px; margin-bottom: 20px;">
+                                    <span class="white-text text-darken-2">
+                                        <?php 
+                                            if ($_GET['erro'] === 'usuario_ou_senha_incorretos') echo "E-mail ou senha incorretos.";
+                                            elseif ($_GET['erro'] === 'campos_vazios') echo "Por favor, preencha todos os campos.";
+                                        ?>
+                                    </span>
+                                </div>
+                            <?php endif; ?>
+
+                            <form action="../CONTROLLER/LoginController.php" method="POST">
+                                <div class="input-field">
+                                    <i class="material-icons prefix">email</i>
+                                    <input type="email" id="email" name="email" required class="validate">
+                                    <label for="email">E-mail</label>
+                                </div>
+
+                                <div class="input-field" style="margin-top: 30px;">
+                                    <i class="material-icons prefix">lock</i>
+                                    <input type="password" id="senha" name="senha" required class="validate">
+                                    <label for="senha">Senha</label>
+                                </div>
+
+                                <div class="right-align" style="margin-bottom: 20px;">
+                                    <a href="#" class="indigo-text text-lighten-2 text-small">Esqueci minha senha</a>
+                                </div>
+
+                                <button type="submit" class="btn waves-effect waves-light indigo accent-4 btn-large" style="width: 100%; border-radius: 8px; font-weight: 600;">
+                                    Entrar
+                                </button>
+                            </form>
+
+                            <div class="center-align" style="margin-top: 30px;">
+                               <p class="grey-text text-lighten-1">Não tem uma conta? <a href="cadastro.php" class="indigo-text text-lighten-2" style="font-weight: 600;">Cadastre-se</a></p>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                <span class="error-msg" id="error-email"></span>
             </div>
-            
-            <div class="form-group">
-                <label for="senha">Palavra-passe</label>
-                <div class="input-with-icon">
-                    <i class="material-icons input-icon">lock</i>
-                    <input type="password" id="senha" name="senha" placeholder="Insira a sua senha" required>
-                </div>
-                <span class="error-msg" id="error-senha"></span>
-            </div>
-            
-            <button type="submit" class="btn-primary">
-                <span>Entrar</span>
-                <i class="material-icons btn-icon">login</i>
-            </button>
-        </form>
-
-        <div class="footer-link">
-            Ainda não tem conta? <a href="cadastro.php">Crie uma aqui</a>
         </div>
     </div>
-</div>
 
-<script src="../VIEW/javascript/login.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <script src="../public/js/login.js"></script>
 </body>
 </html>
