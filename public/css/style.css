@@ -42,15 +42,12 @@ nav {
   color: #fcfbfc !important;
 }
 
-/* ==========================================================================
-   NOVO: Grid Container da Estante (Corrige o desalinhamento e espaços vazios)
-   ========================================================================== */
+
 .container-estante {
   display: grid !important;
-  /* Cria uma grade flexível e adaptável (mínimo de 280px de largura por card) */
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
-  gap: 24px !important; /* Espaçamento idêntico entre os cards vertical e horizontalmente */
-  align-items: stretch !important; /* Força todos os cards da mesma linha a esticarem juntos */
+  gap: 24px !important; 
+  align-items: stretch !important; 
   margin-top: 20px;
   margin-bottom: 40px;
   width: 100%;
@@ -63,16 +60,11 @@ nav {
   letter-spacing: -0.5px;
 }
 
-/* ==========================================================================
-   ATUALIZADO: Card de Livro Individual
-   ========================================================================== */
 .book-card {
   background-color: #111827 !important;
   border: 1px solid #1f2937 !important;
   border-radius: 14px !important;
-
-  /* Ajustes essenciais de tamanho e flexbox */
-  height: 100% !important; /* Garante que o card ocupe toda a altura do container Grid */
+  height: 100% !important; 
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-between !important;
@@ -95,14 +87,12 @@ nav {
 
 .book-card .card-content {
   padding: 24px !important;
-  flex-grow: 1; /* Faz com que a área de conteúdo cresça se necessário */
+  flex-grow: 1; 
   display: flex;
   flex-direction: column;
 }
 
-/* ==========================================================================
-   ATUALIZADO: Título do Livro (Tratamento para títulos longos)
-   ========================================================================== */
+
 .book-card .card-title {
   font-size: 1.3rem !important;
   line-height: 1.4 !important;
@@ -110,13 +100,13 @@ nav {
   margin-bottom: 12px !important;
   color: #ffffff !important;
 
-  /* Mantém consistência visual escondendo o excesso e aplicando as reticências (...) */
+ 
   display: -webkit-box !important;
-  -webkit-line-clamp: 2 !important; /* Limita a no máximo duas linhas */
+  -webkit-line-clamp: 2 !important; 
   -webkit-box-orient: vertical !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
-  min-height: 3.6em; /* Garante que mesmo títulos de 1 linha reservem o espaço de 2 linhas */
+  min-height: 3.6em; 
 }
 
 .book-card p {
