@@ -156,13 +156,13 @@ if ($totalLivros > 0) {
                                     
                                     <div style="position: absolute; top: 15px; right: 15px; z-index: 5; display: flex; gap: 10px; align-items: center;">
                                         <a href="#modal-diario-<?php echo $livro->getId(); ?>" class="modal-trigger" style="background: none; border: none; cursor: pointer; padding: 0;" title="Diário de Leitura">
-                                            <i class="material-icons" style="color: #57086f; font-size: 1.3rem; transition: color 0.2s;" onmouseover="this.style.color='#5e1271'" onmouseout="this.style.color='#3b82f6'">edit_note</i>
+                                            <i class="material-icons" style="color: #a855f7; font-size: 1.3rem; transition: color 0.2s;" onmouseover="this.style.color='#c084fc'" onmouseout="this.style.color='#a855f7'">edit_note</i>
                                         </a>
 
                                         <form action="../CONTROLLER/DeleteLivroController.php" method="POST" style="margin: 0;" onsubmit="return confirm('Deseja mesmo remover este livro da sua estante?');">
                                             <input type="hidden" name="livro_id" value="<?php echo $livro->getId(); ?>">
                                             <button type="submit" style="background: none; border: none; cursor: pointer; padding: 0;" title="Remover Livro">
-                                                <i class="material-icons" style="color: #440852; font-size: 1.3rem; transition: color 0.2s;" onmouseover="this.style.color='#530660'" onmouseout="this.style.color='#ef4444'">delete</i>
+                                                <i class="material-icons" style="color: #ef4444; font-size: 1.3rem; transition: color 0.2s;" onmouseover="this.style.color='#f87171'" onmouseout="this.style.color='#ef4444'">delete</i>
                                             </button>
                                         </form>
                                     </div>
@@ -237,7 +237,6 @@ if ($totalLivros > 0) {
                                         
                                         <div class="historico-anotacoes" style="max-height: 250px; overflow-y: auto; padding-right: 5px;">
                                             <?php 
-                                           
                                             $livroDAL_diario = new LivroDAL();
                                             $historico = $livroDAL_diario->listarDiarioDoLivro($livro->getId());
                                             
@@ -273,30 +272,50 @@ if ($totalLivros > 0) {
         </div>
     </div>
 
-    <div id="modal-cadastro" class="modal">
+    <div id="modal-cadastro" class="modal" style="max-width: 600px; border-radius: 12px; background-color: #1f2937; color: #f3f4f6;">
         <form action="../CONTROLLER/LivroController.php" method="POST">
             <div class="modal-content">
-                <h4 class="text-neon-purple">Adicionar Novo Livro</h4>
-                <p>Preencha as informações para colocar o livro na sua estante.</p>
+                <h4 class="text-neon-purple" style="margin-bottom: 5px;">Adicionar Novo Livro</h4>
+                <p style="color: #9ca3af; margin-bottom: 25px;">Insira o título ou autor abaixo para buscar dados automaticamente da API do Google, ou preencha manualmente.</p>
                 
-                <div class="input-field" style="margin-top: 20px;">
-                    <input type="text" id="titulo" name="titulo" required class="validate">
-                    <label for="titulo">Título do Livro</label>
+                <div class="row" style="background-color: #111827; padding: 15px; border-radius: 8px; margin-bottom: 25px; border: 1px dashed #4b5563;">
+                    <span style="font-size: 0.8rem; font-weight: 700; color: #c084fc; display: block; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;">🔍 Importação Inteligente (Google Books)</span>
+                    <div class="input-field col s9" style="margin: 0;">
+                        <input type="text" id="pesquisa-api" style="color: #f3f4f6; margin-bottom: 0; border-bottom: 1px solid #4b5563;" placeholder="Ex: Harry Potter e a Pedra Filosofal">
+                    </div>
+                    <div class="col s3" style="text-align: right;">
+                        <button type="button" id="btn-api-search" class="btn waves-effect waves-light" style="background-color: #a855f7 !important; height: 45px; width: 100%;">
+                            <i class="material-icons">search</i>
+                        </button>
+                    </div>
                 </div>
 
-                <div class="input-field" style="margin-top: 25px;">
-                    <input type="text" id="autor" name="autor" required class="validate">
-                    <label for="autor">Autor</label>
+                <div class="row valign-wrapper" style="margin-bottom: 15px;">
+                    <div class="col s4 text-center" style="display: flex; justify-content: center;">
+                        <img id="api-preview-capa" src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=110&auto=format&fit=crop&q=60" alt="Preview Capa" style="border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); max-height: 150px; width: auto; object-fit: cover;">
+                    </div>
+                    <div class="col s8">
+                        <div class="input-field" style="margin-top: 0;">
+                            <input type="text" id="titulo" name="titulo" value="" required class="validate" style="color: #f3f4f6; border-bottom: 1px solid #4b5563;">
+                            <label for="titulo">Título do Livro</label>
+                        </div>
+
+                        <div class="input-field" style="margin-top: 25px;">
+                            <input type="text" id="autor" name="autor" value="" required class="validate" style="color: #f3f4f6; border-bottom: 1px solid #4b5563;">
+                            <label for="autor">Autor</label>
+                        </div>
+
+                        <div class="input-field" style="margin-top: 25px; margin-bottom: 0;">
+                            <input type="number" id="paginas_total" name="paginas_total" value="" required min="1" class="validate" style="color: #f3f4f6; border-bottom: 1px solid #4b5563;">
+                            <label for="paginas_total">Total de Páginas</label>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="input-field" style="margin-top: 25px;">
-                    <input type="number" id="paginas_total" name="paginas_total" required min="1" class="validate">
-                    <label for="paginas_total">Total de Páginas</label>
-                </div>
             </div>
-            <div class="modal-footer" style="background-color: #111827;">
+            <div class="modal-footer" style="background-color: #111827; border-top: 1px solid #374151;">
                 <a href="#!" class="modal-close waves-effect btn-flat red-text text-lighten-2" style="font-weight: 600;">Cancelar</a>
-                <button type="submit" class="btn waves-effect waves-light btn-modal-save">Salvar Livro</button>
+                <button type="submit" class="btn waves-effect waves-light btn-modal-save" style="background-color: #a855f7 !important;">Salvar Livro</button>
             </div>
         </form>
     </div>
