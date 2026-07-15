@@ -42,12 +42,11 @@ nav {
   color: #fcfbfc !important;
 }
 
-
 .container-estante {
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
-  gap: 24px !important; 
-  align-items: stretch !important; 
+  gap: 24px !important;
+  align-items: stretch !important;
   margin-top: 20px;
   margin-bottom: 40px;
   width: 100%;
@@ -64,7 +63,7 @@ nav {
   background-color: #111827 !important;
   border: 1px solid #1f2937 !important;
   border-radius: 14px !important;
-  height: 100% !important; 
+  height: 100% !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-between !important;
@@ -87,11 +86,10 @@ nav {
 
 .book-card .card-content {
   padding: 24px !important;
-  flex-grow: 1; 
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
-
 
 .book-card .card-title {
   font-size: 1.3rem !important;
@@ -100,13 +98,12 @@ nav {
   margin-bottom: 12px !important;
   color: #ffffff !important;
 
- 
   display: -webkit-box !important;
-  -webkit-line-clamp: 2 !important; 
+  -webkit-line-clamp: 2 !important;
   -webkit-box-orient: vertical !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
-  min-height: 3.6em; 
+  min-height: 3.6em;
 }
 
 .book-card p {
