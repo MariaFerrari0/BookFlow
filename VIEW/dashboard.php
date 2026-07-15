@@ -156,13 +156,13 @@ if ($totalLivros > 0) {
                                     
                                     <div style="position: absolute; top: 15px; right: 15px; z-index: 5; display: flex; gap: 10px; align-items: center;">
                                         <a href="#modal-diario-<?php echo $livro->getId(); ?>" class="modal-trigger" style="background: none; border: none; cursor: pointer; padding: 0;" title="Diário de Leitura">
-                                            <i class="material-icons" style="color: #3b82f6; font-size: 1.3rem; transition: color 0.2s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#3b82f6'">edit_note</i>
+                                            <i class="material-icons" style="color: #57086f; font-size: 1.3rem; transition: color 0.2s;" onmouseover="this.style.color='#5e1271'" onmouseout="this.style.color='#3b82f6'">edit_note</i>
                                         </a>
 
                                         <form action="../CONTROLLER/DeleteLivroController.php" method="POST" style="margin: 0;" onsubmit="return confirm('Deseja mesmo remover este livro da sua estante?');">
                                             <input type="hidden" name="livro_id" value="<?php echo $livro->getId(); ?>">
                                             <button type="submit" style="background: none; border: none; cursor: pointer; padding: 0;" title="Remover Livro">
-                                                <i class="material-icons" style="color: #ef4444; font-size: 1.3rem; transition: color 0.2s;" onmouseover="this.style.color='#f87171'" onmouseout="this.style.color='#ef4444'">delete</i>
+                                                <i class="material-icons" style="color: #440852; font-size: 1.3rem; transition: color 0.2s;" onmouseover="this.style.color='#530660'" onmouseout="this.style.color='#ef4444'">delete</i>
                                             </button>
                                         </form>
                                     </div>
@@ -211,7 +211,7 @@ if ($totalLivros > 0) {
                                 <form action="../CONTROLLER/UpdateDiarioController.php" method="POST">
                                     <div class="modal-content" style="padding-bottom: 10px;">
                                         <h4 class="text-neon-purple" style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
-                                            <i class="material-icons" style="font-size: 2.2rem; color: #a855f7;">edit_note</i>
+                                            <i class="material-icons" style="font-size: 2.2rem; color: #a855f7;">mode_comment</i>
                                             Diário de Leitura
                                         </h4>
                                         <p style="color: #9ca3af; margin-bottom: 20px;">
@@ -237,7 +237,7 @@ if ($totalLivros > 0) {
                                         
                                         <div class="historico-anotacoes" style="max-height: 250px; overflow-y: auto; padding-right: 5px;">
                                             <?php 
-                                            // Instancia novamente para garantir escopo limpo do loop e busca dados da tabela correto
+                                           
                                             $livroDAL_diario = new LivroDAL();
                                             $historico = $livroDAL_diario->listarDiarioDoLivro($livro->getId());
                                             

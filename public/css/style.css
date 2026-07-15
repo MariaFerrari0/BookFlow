@@ -21,9 +21,8 @@ nav {
   color: #ffffff !important;
 }
 
-
 .welcome-panel {
-  background: linear-gradient(135deg, #22092b 0%, #28093f 100%) !important;
+  background: linear-gradient(135deg, #13092b 0%, #19093f 100%) !important;
   border: 1px solid #22033e !important;
   border-radius: 16px !important;
   padding: 30px !important;
@@ -40,9 +39,8 @@ nav {
 }
 
 .welcome-panel p {
-  color: #fcfbfc !important; 
+  color: #fcfbfc !important;
 }
-
 
 .stat-card {
   background-color: #111827 !important;
@@ -60,17 +58,16 @@ nav {
 
 .stat-card h5 {
   font-weight: 800 !important;
-  color: #ffffff !important; 
+  color: #ffffff !important;
   margin: 5px 0 !important;
   font-size: 2rem !important;
 }
 
 .stat-card p {
-  color: #9ca3af !important; 
+  color: #9ca3af !important;
   margin: 0 !important;
   font-size: 0.95rem;
 }
-
 
 .icon-indigo {
   color: #818cf8 !important;
@@ -82,7 +79,6 @@ nav {
   color: #4ade80 !important;
 }
 
-
 .estante-titulo {
   color: #ffffff !important;
   margin-bottom: 25px;
@@ -90,9 +86,8 @@ nav {
   letter-spacing: -0.5px;
 }
 
-
 .book-card {
-  background-color: #111827 !important; 
+  background-color: #111827 !important;
   border: 1px solid #1f2937 !important;
   border-radius: 14px !important;
   min-height: 250px;
@@ -124,11 +119,11 @@ nav {
   line-height: 1.4 !important;
   font-weight: 700 !important;
   margin-bottom: 12px !important;
-  color: #ffffff !important; 
+  color: #ffffff !important;
 }
 
 .book-card p {
-  color: #9ca3af !important; 
+  color: #9ca3af !important;
   font-size: 0.95rem;
   margin: 8px 0 !important;
   display: flex;
@@ -138,16 +133,14 @@ nav {
 
 .book-card p i {
   font-size: 1.1rem !important;
-  color: #c084fc !important; 
+  color: #c084fc !important;
 }
-
 
 .book-card .card-action {
   background-color: #151e2e !important;
   border-top: 1px solid #1f2937 !important;
   padding: 16px 24px !important;
 }
-
 
 .status-select {
   background-color: #0b0f19 !important;
@@ -161,14 +154,13 @@ nav {
   outline: none;
   cursor: pointer;
   font-size: 0.9rem;
-  height: auto !important; 
+  height: auto !important;
 }
 
 .status-select:focus {
   border-color: #a855f7 !important;
   box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
 }
-
 
 .progress-form {
   margin-top: 15px;
@@ -181,7 +173,7 @@ nav {
   background: transparent;
   border: none;
   border-bottom: 1px solid #374151 !important;
-  color: #ffffff !important; 
+  color: #ffffff !important;
   width: 60px !important;
   height: 30px !important;
   margin: 0 !important;
@@ -208,9 +200,8 @@ nav {
   color: #c084fc;
 }
 
-
 .progress-container {
-  background-color: #1f2937; 
+  background-color: #1f2937;
   border-radius: 8px;
   height: 8px;
   width: 100%;
@@ -219,16 +210,11 @@ nav {
 }
 
 .progress-bar {
-  background: linear-gradient(
-    90deg,
-    #818cf8,
-    #a855f7
-  ) !important;
+  background: linear-gradient(90deg, #818cf8, #a855f7) !important;
   height: 100%;
   border-radius: 8px;
   transition: width 0.4s ease;
 }
-
 
 .empty-shelf {
   background-color: #111827 !important;
@@ -299,13 +285,12 @@ nav {
   height: auto !important;
 }
 
-
 .login-body {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #0b0f19 !important; 
+  background-color: #0b0f19 !important;
   margin: 0;
 }
 
@@ -323,7 +308,6 @@ nav {
     0 0 20px rgba(168, 85, 247, 0.15);
 }
 
-
 .login-sidebar {
   flex: 1;
   background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 100%) !important;
@@ -338,7 +322,7 @@ nav {
 
 .login-sidebar i {
   font-size: 5rem !important;
-  color: #a855f7 !important; 
+  color: #a855f7 !important;
   margin-bottom: 20px;
 }
 
@@ -350,7 +334,7 @@ nav {
 }
 
 .login-sidebar h2 span {
-  color: #a855f7; 
+  color: #a855f7;
 }
 
 .login-sidebar p {
@@ -359,7 +343,6 @@ nav {
   margin: 0;
   max-width: 280px;
 }
-
 
 .login-form-wrapper {
   flex: 1;
@@ -382,9 +365,6 @@ nav {
   margin-bottom: 30px;
 }
 
-
-
-
 .login-form-wrapper .input-field input[type="email"]:not(.browser-default),
 .login-form-wrapper .input-field input[type="password"]:not(.browser-default) {
   color: #ffffff !important;
@@ -392,11 +372,10 @@ nav {
   background: transparent !important;
   border-bottom: 1px solid #374151 !important;
   box-shadow: none !important;
-  padding-left: 45px !important; 
+  padding-left: 45px !important;
   width: calc(100% - 45px) !important;
   box-sizing: border-box;
 }
-
 
 .login-form-wrapper
   .input-field
@@ -417,19 +396,16 @@ nav {
   box-shadow: inset 0 0 0px 9999px transparent !important;
 }
 
-
 .login-form-wrapper .input-field label {
   color: #9ca3af !important;
-  left: 45px !important; 
+  left: 45px !important;
 }
-
 
 .login-form-wrapper .input-field label.active {
   color: #c084fc !important;
   transform: translateY(-14px) scale(0.8) !important;
   left: 45px !important;
 }
-
 
 .login-form-wrapper .input-field i.prefix {
   color: #9ca3af !important;
@@ -441,7 +417,6 @@ nav {
 .login-form-wrapper .input-field input:focus ~ i.prefix {
   color: #c084fc !important;
 }
-
 
 .btn-login {
   background: linear-gradient(90deg, #6366f1, #a855f7) !important;
@@ -462,7 +437,6 @@ nav {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5) !important;
 }
-
 
 .login-links {
   display: flex;
@@ -498,25 +472,23 @@ nav {
   text-decoration: underline;
 }
 
-
 .pomodoro-card {
   background-color: #111827 !important;
-  border: 1px solid #a855f7 !important; 
+  border: 1px solid #a855f7 !important;
   border-radius: 16px !important;
   padding: 24px !important;
   text-align: center;
   box-shadow:
     0 0 15px rgba(168, 85, 247, 0.25),
-    0 10px 15px -3px rgba(0, 0, 0, 0.3) !important; 
+    0 10px 15px -3px rgba(0, 0, 0, 0.3) !important;
   position: relative;
   overflow: hidden;
   margin-bottom: 30px;
 }
 
 .pomodoro-header span {
-  text-shadow: 0 0 8px rgba(168, 85, 247, 0.6); 
+  text-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
 }
-
 
 .pomodoro-time {
   font-size: 3.5rem !important;
@@ -533,7 +505,6 @@ nav {
   gap: 15px;
   margin-top: 20px;
 }
-
 
 .pomodoro-controls button {
   background: rgba(168, 85, 247, 0.05) !important;
@@ -562,7 +533,7 @@ nav {
 
 .stat-card {
   background-color: #111827 !important;
-  border: 1px solid rgba(168, 85, 247, 0.2) !important; 
+  border: 1px solid rgba(168, 85, 247, 0.2) !important;
   border-radius: 16px !important;
   padding: 24px !important;
   text-align: center;
@@ -570,13 +541,12 @@ nav {
   transition: all 0.3s ease-in-out !important;
 }
 
-
 .stat-card:hover {
-  transform: translateY(-4px); 
-  border-color: #a855f7 !important; 
+  transform: translateY(-4px);
+  border-color: #a855f7 !important;
   box-shadow:
     0 0 20px rgba(168, 85, 247, 0.4),
-    0 10px 20px rgba(0, 0, 0, 0.4) !important; 
+    0 10px 20px rgba(0, 0, 0, 0.4) !important;
 }
 
 .stat-card h5,
@@ -587,12 +557,9 @@ nav {
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
-
 .stat-card i.material-icons {
   filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.3));
 }
-
-
 
 .text-neon-purple {
   color: #ffffff !important;
@@ -602,7 +569,6 @@ nav {
     0 0 20px rgba(168, 85, 247, 1) !important;
 }
 
-
 .text-neon-blue {
   color: #ffffff !important;
   text-shadow:
@@ -611,12 +577,10 @@ nav {
     0 0 20px rgba(99, 102, 241, 1) !important;
 }
 
-
 .text-neon-subtle {
-  color: #e9d5ff !important; 
+  color: #e9d5ff !important;
   text-shadow: 0 0 8px rgba(168, 85, 247, 0.4) !important;
 }
-
 
 .logo-neon {
   display: inline-flex;
@@ -624,12 +588,10 @@ nav {
   gap: 8px;
 }
 
-
 .logo-neon i.material-icons,
 .logo-neon img {
   filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.95)) !important;
 }
-
 
 .logo-neon-text {
   font-weight: 800 !important;
@@ -649,7 +611,6 @@ nav {
     0 0 4px rgba(168, 85, 247, 0.6),
     0 0 12px rgba(168, 85, 247, 0.9) !important;
 }
-
 
 .btn-neon-purple {
   background-color: rgba(168, 85, 247, 0.1) !important;
@@ -671,7 +632,6 @@ nav {
 .btn-neon-purple i {
   color: #ffffff !important;
 }
-
 
 .btn-modal-save {
   background-color: rgba(168, 85, 247, 0.1) !important;
