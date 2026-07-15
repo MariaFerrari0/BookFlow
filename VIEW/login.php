@@ -42,13 +42,13 @@
             <form action="../CONTROLLER/LoginController.php" method="POST">
                 <div class="input-field">
                     <i class="material-icons prefix" style="color: #6366f1;">email</i>
-                    <input type="email" id="email" name="email" required class="validate" style="color: #ffffff;">
+                    <input type="email" id="email" name="email" required class="validate" style="color: #b913b0;">
                     <label for="email">E-mail</label>
                 </div>
 
                 <div class="input-field">
                     <i class="material-icons prefix" style="color: #6366f1;">lock</i>
-                    <input type="password" id="senha" name="senha" required class="validate" style="color: #ffffff;">
+                    <input type="password" id="senha" name="senha" required class="validate" style="color: #c641cf;">
                     <label for="senha">Senha</label>
                 </div>
 

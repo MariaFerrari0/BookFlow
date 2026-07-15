@@ -364,7 +364,7 @@ nav {
   font-size: 2.5rem;
   font-weight: 800;
   margin: 0 0 10px 0;
-  color: #ffffff;
+  color: #720e5e;
 }
 
 .login-sidebar h2 span {
@@ -400,43 +400,68 @@ nav {
   margin-bottom: 30px;
 }
 
-/* Campos de entrada customizados para o Login */
-.login-form-wrapper .input-field {
-  margin-bottom: 25px;
-  position: relative;
-}
+/* ==========================================================================
+   CORREÇÃO DEFINITIVA DOS INPUTS DE LOGIN (FIM DO FUNDO BRANCO)
+   ========================================================================== */
 
-.login-form-wrapper .input-field i.prefix {
-  color: #9ca3af !important;
-  font-size: 1.5rem;
-  transition: color 0.2s;
-}
-
-.login-form-wrapper .input-field input {
+/* Garante que o input de e-mail e senha fiquem 100% transparentes e integrados ao fundo escuro */
+.login-form-wrapper .input-field input[type="email"]:not(.browser-default),
+.login-form-wrapper .input-field input[type="password"]:not(.browser-default) {
   color: #ffffff !important;
-  border-bottom: 1px solid #374151 !important;
   background-color: transparent !important;
+  background: transparent !important;
+  border-bottom: 1px solid #374151 !important;
   box-shadow: none !important;
+  padding-left: 45px !important; /* Abre espaço para o ícone lateral */
+  width: calc(100% - 45px) !important;
+  box-sizing: border-box;
 }
 
-.login-form-wrapper .input-field input:focus {
+/* Quando clicar no campo (Foco), ativa a borda roxa/indigo elegante */
+.login-form-wrapper
+  .input-field
+  input[type="email"]:not(.browser-default):focus:not([readonly]),
+.login-form-wrapper
+  .input-field
+  input[type="password"]:not(.browser-default):focus:not([readonly]) {
   border-bottom: 1px solid #a855f7 !important;
   box-shadow: 0 1px 0 0 #a855f7 !important;
 }
 
-.login-form-wrapper .input-field input:focus + label {
-  color: #c084fc !important;
+/* COMBATE AO AUTOCOMPLETE DO CHROME/EDGE (O grande culpado pela caixa branca!) */
+.login-form-wrapper .input-field input:-webkit-autofill,
+.login-form-wrapper .input-field input:-webkit-autofill:hover,
+.login-form-wrapper .input-field input:-webkit-autofill:focus,
+.login-form-wrapper .input-field input:-webkit-autofill:active {
+  -webkit-text-fill-color: #ffffff !important;
+  /* Cria uma transição infinita para segurar o fundo transparente do navegador */
+  transition: background-color 50000s ease-in-out 0s !important;
+  box-shadow: inset 0 0 0px 9999px transparent !important;
 }
 
-.login-form-wrapper .input-field input:focus ~ i.prefix {
-  color: #c084fc !important;
-}
-
+/* Alinhamento fino das Labels */
 .login-form-wrapper .input-field label {
   color: #9ca3af !important;
+  left: 45px !important; /* Move a label para a direita para não ficar em cima do ícone */
 }
 
+/* Quando a label sobe */
 .login-form-wrapper .input-field label.active {
+  color: #c084fc !important;
+  transform: translateY(-14px) scale(0.8) !important;
+  left: 45px !important;
+}
+
+/* Estilo do ícone lateral */
+.login-form-wrapper .input-field i.prefix {
+  color: #9ca3af !important;
+  font-size: 1.5rem !important;
+  top: 0.5rem !important;
+  left: 0 !important;
+}
+
+/* Quando o campo está focado, o ícone brilha em roxo */
+.login-form-wrapper .input-field input:focus ~ i.prefix {
   color: #c084fc !important;
 }
 
