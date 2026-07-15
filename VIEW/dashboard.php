@@ -276,10 +276,10 @@ if ($totalLivros > 0) {
         <form action="../CONTROLLER/LivroController.php" method="POST">
             <div class="modal-content">
                 <h4 class="text-neon-purple" style="margin-bottom: 5px;">Adicionar Novo Livro</h4>
-                <p style="color: #9ca3af; margin-bottom: 25px;">Insira o título ou autor abaixo para buscar dados automaticamente da API do Google, ou preencha manualmente.</p>
+                <p style="color: #9ca3af; margin-bottom: 25px;">Insira o título ou autor abaixo.</p>
                 
                 <div class="row" style="background-color: #111827; padding: 15px; border-radius: 8px; margin-bottom: 25px; border: 1px dashed #4b5563;">
-                    <span style="font-size: 0.8rem; font-weight: 700; color: #c084fc; display: block; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;">🔍 Importação Inteligente (Google Books)</span>
+                    <span style="font-size: 0.8rem; font-weight: 700; color: #c084fc; display: block; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;"></span>
                     <div class="input-field col s9" style="margin: 0;">
                         <input type="text" id="pesquisa-api" style="color: #f3f4f6; margin-bottom: 0; border-bottom: 1px solid #4b5563;" placeholder="Ex: Harry Potter e a Pedra Filosofal">
                     </div>
@@ -325,7 +325,6 @@ if ($totalLivros > 0) {
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Inicializa todos os Modais
         var modals = document.querySelectorAll('.modal');
         M.Modal.init(modals);
 
