@@ -7,13 +7,12 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 
 require_once __DIR__ . '/../DAL/LivroDAL.php';
-// ADICIONADO: Garantindo a importação da classe Diario para carregar o histórico no modal
 require_once __DIR__ . '/../MODEL/Diario.php';
 
 $nomeUsuario = $_SESSION['usuario_nome'];
 $usuario_id = $_SESSION['usuario_id'];
 
-// Busca os livros reais do usuário no banco de dados para listar
+
 $livroDAL = new LivroDAL();
 $meusLivros = $livroDAL->listarPorUsuario($usuario_id);
 $totalLivros = count($meusLivros);
@@ -33,7 +32,6 @@ foreach ($meusLivros as $livro) {
     }
 }
 
-// Cálculo da Meta Concluída (evitando divisão por zero se a estante estiver vazia)
 $metaConcluida = 0;
 if ($totalLivros > 0) {
     $metaConcluida = (int)(($finalizados / $totalLivros) * 100);
@@ -55,7 +53,7 @@ if ($totalLivros > 0) {
     <nav>
         <div class="nav-wrapper">
             <a href="#" class="brand-logo left valign-wrapper logo-neon" style="gap: 10px; height: 100%;">
-                <i class="material-icons" style="color: #6366f1; margin: 0; font-size: 2rem;">auto_stories</i> 
+                <i class="material-icons" style="color: #782a8c; margin: 0; font-size: 2rem;">auto_stories</i> 
                 <span class="logo-neon-text">
                     <span class="brand-book">Book</span><span class="brand-flow">Flow</span>
                 </span>
@@ -77,7 +75,7 @@ if ($totalLivros > 0) {
             <div class="col s12">
                 <div class="welcome-panel valign-wrapper" style="justify-content: space-between; flex-wrap: wrap; gap: 20px;">
                     <div>
-                        <h4 class="text-neon-purple">Seu Painel de Leituras 📚</h4>
+                        <h4 class="text-neon-purple"> Bem vindo ao BookFlow</h4>
                         <p class="text-neon-subtle">Gerencie sua estante e acompanhe sua evolução literária com foco.</p>
                     </div>
                     <a class="waves-effect waves-light btn-large btn-neon-purple modal-trigger" href="#modal-cadastro">
@@ -96,7 +94,7 @@ if ($totalLivros > 0) {
                     </div>
                     
                     <h5 class="pomodoro-time">
-                        <span id="pomodoro-minutes">25</span>:<span id="pomodoro-seconds">00</span>
+                        <span id="pomodoro-minutes">60</span>:<span id="pomodoro-seconds">00</span>
                     </h5>
                     
                     <p style="color: #9ca3af; margin: 0; font-size: 0.95rem;">Mantenha o foco absoluto na sua leitura!</p>
@@ -217,7 +215,7 @@ if ($totalLivros > 0) {
                                             Diário de Leitura
                                         </h4>
                                         <p style="color: #9ca3af; margin-bottom: 20px;">
-                                            O que você está achando de <b><?php echo htmlspecialchars($livro->getTitulo()); ?></b>? Escreva uma nova página para o seu diário!
+                                            O que você está achando de <b><?php echo htmlspecialchars($livro->getTitulo()); ?></b>? 
                                         </p>
                                         
                                         <input type="hidden" name="livro_id" value="<?php echo $livro->getId(); ?>">
@@ -234,7 +232,7 @@ if ($totalLivros > 0) {
                                         <hr style="border: 0; border-top: 1px solid #374151; margin: 25px 0 15px 0;">
 
                                         <h6 style="color: #c084fc; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 5px;">
-                                            <i class="material-icons" style="font-size: 1.2rem;">history</i> Linha do Tempo de Anotações
+                                            <i class="material-icons" style="font-size: 1.2rem;">history</i> Minhas Anotações
                                         </h6>
                                         
                                         <div class="historico-anotacoes" style="max-height: 250px; overflow-y: auto; padding-right: 5px;">
@@ -255,9 +253,7 @@ if ($totalLivros > 0) {
                                                             <span style="font-size: 0.75rem; color: #9ca3af; display: block; margin-bottom: 5px; font-weight: 600;">
                                                                 📅 Escrito em: <?php echo $item->getDataFormatada(); ?>
                                                             </span>
-                                                            <p style="margin: 0; color: #e5e7eb; font-size: 0.92rem; white-space: pre-wrap; line-height: 1.4;">
-                                                                <?php echo htmlspecialchars($item->getAnotacao() ?? ''); ?>
-                                                            </p>
+                                                            <p style="margin: 0; color: #e5e7eb; font-size: 0.92rem; white-space: pre-wrap; line-height: 1.4;"><?php echo htmlspecialchars(trim($item->getAnotacao() ?? '')); ?></p>
                                                         </div>
                                                     <?php endif; ?>
                                                 <?php endforeach; ?>
@@ -326,7 +322,7 @@ if ($totalLivros > 0) {
         
         let isWorkSession = true; 
         let isRunning = false;
-        let timeLeft = 25 * 60; 
+        let timeLeft = 60 * 60; 
 
         function updateDisplay() {
             let mins = Math.floor(timeLeft / 60);
@@ -338,16 +334,16 @@ if ($totalLivros > 0) {
         function switchSession() {
             if (isWorkSession) {
                 isWorkSession = false;
-                timeLeft = 5 * 60; 
+                timeLeft = 15 * 60; 
                 statusDisplay.textContent = "Modo Pausa";
                 statusDisplay.style.color = "#4ade80"; 
                 statusDisplay.style.textShadow = "0 0 8px rgba(74, 222, 128, 0.6)";
                 iconDisplay.textContent = "coffee";
                 iconDisplay.style.color = "#4ade80";
-                alert("Muito bem! Hora de uma pausa de 5 minutos.");
+                alert("Muito bem! Hora de uma pausa de 15 minutos.");
             } else {
                 isWorkSession = true;
-                timeLeft = 25 * 60; 
+                timeLeft = 60 * 60; 
                 statusDisplay.textContent = "Modo Foco";
                 statusDisplay.style.color = "#a855f7"; 
                 statusDisplay.style.textShadow = "0 0 8px rgba(168, 85, 247, 0.6)";
@@ -388,7 +384,7 @@ if ($totalLivros > 0) {
             clearInterval(timer);
             isRunning = false;
             isWorkSession = true;
-            timeLeft = 25 * 60;
+            timeLeft = 60 * 60;
             statusDisplay.textContent = "Modo Foco";
             statusDisplay.style.color = "#a855f7";
             statusDisplay.style.textShadow = "0 0 8px rgba(168, 85, 247, 0.6)";

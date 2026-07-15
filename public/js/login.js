@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Inicializa todos os componentes do Materialize (como inputs animados)
   M.AutoInit();
 
   const form = document.querySelector("form");
@@ -19,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (erros.length > 0) {
       event.preventDefault();
-      // Usando o sistema de "Toast" do Materialize para avisos bonitos na tela
       erros.forEach((erro) => {
         M.toast({ html: erro, classes: "rounded red darken-2" });
       });

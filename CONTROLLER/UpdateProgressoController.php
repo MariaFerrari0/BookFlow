@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Impede acessos diretos que não sejam via POST
+
 if (!isset($_SESSION['usuario_id']) || $_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: ../VIEW/login.php");
     exit;
@@ -22,6 +22,6 @@ if ($livro_id !== false && $paginas_lidas !== false) {
     $livroDAL->atualizarProgresso($livro_id, $paginas_lidas, $usuario_id);
 }
 
-// Redireciona de volta para o dashboard de forma limpa
+
 header("Location: ../VIEW/dashboard.php");
 exit;

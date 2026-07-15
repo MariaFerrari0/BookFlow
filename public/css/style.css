@@ -1,18 +1,12 @@
-/* ==========================================================================
-   RESET & ESTILOS GLOBAIS
-   ========================================================================== */
 body {
   display: block;
-  background-color: #0b0f19 !important; /* Azul espacial profundo */
+  background-color: #0b0f19 !important;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #f1f5f9;
 }
 
-/* ==========================================================================
-   MENU SUPERIOR (NAVBAR)
-   ========================================================================== */
 nav {
-  background-color: #111827 !important; /* Cinza grafite escuro */
+  background-color: #111827 !important;
   border-bottom: 1px solid #1f2937;
   box-shadow: none !important;
 }
@@ -27,33 +21,29 @@ nav {
   color: #ffffff !important;
 }
 
-/* ==========================================================================
-   PAINEL DE BOAS-VINDAS (WELCOME PANEL)
-   ========================================================================== */
+
 .welcome-panel {
-  background: linear-gradient(135deg, #2e1065 0%, #581c87 100%) !important;
-  border: 1px solid #a855f7 !important;
+  background: linear-gradient(135deg, #22092b 0%, #28093f 100%) !important;
+  border: 1px solid #22033e !important;
   border-radius: 16px !important;
   padding: 30px !important;
   margin-bottom: 30px;
   box-shadow:
-    0 0 20px rgba(168, 85, 247, 0.25),
+    0 0 20px rgba(82, 1, 82, 0.927),
     0 10px 15px -3px rgba(0, 0, 0, 0.3) !important;
 }
 
 .welcome-panel h4 {
-  color: #ffffff !important;
+  color: #faf7fa !important;
   font-weight: 700;
   margin-top: 0;
 }
 
 .welcome-panel p {
-  color: #ddd6fe !important; /* Roxo clarinho bem legível */
+  color: #fcfbfc !important; 
 }
 
-/* ==========================================================================
-   CARDS DE ESTATÍSTICAS (STATS)
-   ========================================================================== */
+
 .stat-card {
   background-color: #111827 !important;
   border: 1px solid #1f2937 !important;
@@ -70,18 +60,18 @@ nav {
 
 .stat-card h5 {
   font-weight: 800 !important;
-  color: #ffffff !important; /* Texto branco bem nítido */
+  color: #ffffff !important; 
   margin: 5px 0 !important;
   font-size: 2rem !important;
 }
 
 .stat-card p {
-  color: #9ca3af !important; /* Cinza médio legível */
+  color: #9ca3af !important; 
   margin: 0 !important;
   font-size: 0.95rem;
 }
 
-/* Cores específicas de ícones nas estatísticas */
+
 .icon-indigo {
   color: #818cf8 !important;
 }
@@ -92,9 +82,7 @@ nav {
   color: #4ade80 !important;
 }
 
-/* ==========================================================================
-   ESTANTE DE LIVROS (GRID & CARDS)
-   ========================================================================== */
+
 .estante-titulo {
   color: #ffffff !important;
   margin-bottom: 25px;
@@ -102,9 +90,9 @@ nav {
   letter-spacing: -0.5px;
 }
 
-/* Cards de Livros (Tema Dark) */
+
 .book-card {
-  background-color: #111827 !important; /* Mantém o fundo escuro do card */
+  background-color: #111827 !important; 
   border: 1px solid #1f2937 !important;
   border-radius: 14px !important;
   min-height: 250px;
@@ -119,7 +107,6 @@ nav {
     box-shadow 0.2s;
 }
 
-/* Hover nos Cards de Livros com efeito Neon Roxo */
 .book-card:hover {
   transform: translateY(-4px);
   border-color: #a855f7 !important;
@@ -137,11 +124,11 @@ nav {
   line-height: 1.4 !important;
   font-weight: 700 !important;
   margin-bottom: 12px !important;
-  color: #ffffff !important; /* Título do livro em branco */
+  color: #ffffff !important; 
 }
 
 .book-card p {
-  color: #9ca3af !important; /* Textos de informação em cinza claro */
+  color: #9ca3af !important; 
   font-size: 0.95rem;
   margin: 8px 0 !important;
   display: flex;
@@ -151,17 +138,17 @@ nav {
 
 .book-card p i {
   font-size: 1.1rem !important;
-  color: #c084fc !important; /* Ícones principais em Roxo Neon */
+  color: #c084fc !important; 
 }
 
-/* Rodapé do card (Status de Leitura) */
+
 .book-card .card-action {
   background-color: #151e2e !important;
   border-top: 1px solid #1f2937 !important;
   padding: 16px 24px !important;
 }
 
-/* Estilização do Select do Status */
+
 .status-select {
   background-color: #0b0f19 !important;
   color: #f1f5f9 !important;
@@ -174,7 +161,7 @@ nav {
   outline: none;
   cursor: pointer;
   font-size: 0.9rem;
-  height: auto !important; /* Corrige altura padrão do Materialize */
+  height: auto !important; 
 }
 
 .status-select:focus {
@@ -182,7 +169,7 @@ nav {
   box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
 }
 
-/* Inputs de Progresso de Páginas */
+
 .progress-form {
   margin-top: 15px;
   display: flex;
@@ -194,7 +181,7 @@ nav {
   background: transparent;
   border: none;
   border-bottom: 1px solid #374151 !important;
-  color: #ffffff !important; /* Texto do input visível */
+  color: #ffffff !important; 
   width: 60px !important;
   height: 30px !important;
   margin: 0 !important;
@@ -221,9 +208,9 @@ nav {
   color: #c084fc;
 }
 
-/* Barra de Progresso Neon */
+
 .progress-container {
-  background-color: #1f2937; /* Fundo escuro da barra */
+  background-color: #1f2937; 
   border-radius: 8px;
   height: 8px;
   width: 100%;
@@ -236,13 +223,13 @@ nav {
     90deg,
     #818cf8,
     #a855f7
-  ) !important; /* Gradiente brilhante */
+  ) !important;
   height: 100%;
   border-radius: 8px;
   transition: width 0.4s ease;
 }
 
-/* Sem livros cadastrados */
+
 .empty-shelf {
   background-color: #111827 !important;
   border: 2px dashed #1f2937 !important;
@@ -263,9 +250,6 @@ nav {
   margin: 0;
 }
 
-/* ==========================================================================
-   MODAIS (CADASTRO DE LIVROS, ETC)
-   ========================================================================== */
 .modal {
   background-color: #111827 !important;
   border: 1px solid #1f2937 !important;
@@ -315,15 +299,13 @@ nav {
   height: auto !important;
 }
 
-/* ==========================================================================
-   TELA DE LOGIN (TEMA DARK NEON)
-   ========================================================================== */
+
 .login-body {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #0b0f19 !important; /* Mantém o azul escuro de fundo */
+  background-color: #0b0f19 !important; 
   margin: 0;
 }
 
@@ -332,7 +314,7 @@ nav {
   max-width: 900px;
   width: 100%;
   min-height: 500px;
-  background-color: #111827 !important; /* Fundo cinza escuro do container */
+  background-color: #111827 !important;
   border: 1px solid #1f2937;
   border-radius: 20px;
   overflow: hidden;
@@ -341,7 +323,7 @@ nav {
     0 0 20px rgba(168, 85, 247, 0.15);
 }
 
-/* Painel da Esquerda (Marca/Sidebar) */
+
 .login-sidebar {
   flex: 1;
   background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 100%) !important;
@@ -356,7 +338,7 @@ nav {
 
 .login-sidebar i {
   font-size: 5rem !important;
-  color: #a855f7 !important; /* Ícone do livro em Roxo Neon */
+  color: #a855f7 !important; 
   margin-bottom: 20px;
 }
 
@@ -368,7 +350,7 @@ nav {
 }
 
 .login-sidebar h2 span {
-  color: #a855f7; /* Roxo brilhante no "Flow" */
+  color: #a855f7; 
 }
 
 .login-sidebar p {
@@ -378,7 +360,7 @@ nav {
   max-width: 280px;
 }
 
-/* Formulário da Direita */
+
 .login-form-wrapper {
   flex: 1;
   padding: 50px;
@@ -400,11 +382,9 @@ nav {
   margin-bottom: 30px;
 }
 
-/* ==========================================================================
-   CORREÇÃO DEFINITIVA DOS INPUTS DE LOGIN (FIM DO FUNDO BRANCO)
-   ========================================================================== */
 
-/* Garante que o input de e-mail e senha fiquem 100% transparentes e integrados ao fundo escuro */
+
+
 .login-form-wrapper .input-field input[type="email"]:not(.browser-default),
 .login-form-wrapper .input-field input[type="password"]:not(.browser-default) {
   color: #ffffff !important;
@@ -412,12 +392,12 @@ nav {
   background: transparent !important;
   border-bottom: 1px solid #374151 !important;
   box-shadow: none !important;
-  padding-left: 45px !important; /* Abre espaço para o ícone lateral */
+  padding-left: 45px !important; 
   width: calc(100% - 45px) !important;
   box-sizing: border-box;
 }
 
-/* Quando clicar no campo (Foco), ativa a borda roxa/indigo elegante */
+
 .login-form-wrapper
   .input-field
   input[type="email"]:not(.browser-default):focus:not([readonly]),
@@ -428,31 +408,29 @@ nav {
   box-shadow: 0 1px 0 0 #a855f7 !important;
 }
 
-/* COMBATE AO AUTOCOMPLETE DO CHROME/EDGE (O grande culpado pela caixa branca!) */
 .login-form-wrapper .input-field input:-webkit-autofill,
 .login-form-wrapper .input-field input:-webkit-autofill:hover,
 .login-form-wrapper .input-field input:-webkit-autofill:focus,
 .login-form-wrapper .input-field input:-webkit-autofill:active {
   -webkit-text-fill-color: #ffffff !important;
-  /* Cria uma transição infinita para segurar o fundo transparente do navegador */
   transition: background-color 50000s ease-in-out 0s !important;
   box-shadow: inset 0 0 0px 9999px transparent !important;
 }
 
-/* Alinhamento fino das Labels */
+
 .login-form-wrapper .input-field label {
   color: #9ca3af !important;
-  left: 45px !important; /* Move a label para a direita para não ficar em cima do ícone */
+  left: 45px !important; 
 }
 
-/* Quando a label sobe */
+
 .login-form-wrapper .input-field label.active {
   color: #c084fc !important;
   transform: translateY(-14px) scale(0.8) !important;
   left: 45px !important;
 }
 
-/* Estilo do ícone lateral */
+
 .login-form-wrapper .input-field i.prefix {
   color: #9ca3af !important;
   font-size: 1.5rem !important;
@@ -460,12 +438,11 @@ nav {
   left: 0 !important;
 }
 
-/* Quando o campo está focado, o ícone brilha em roxo */
 .login-form-wrapper .input-field input:focus ~ i.prefix {
   color: #c084fc !important;
 }
 
-/* Botão de Submit Principal */
+
 .btn-login {
   background: linear-gradient(90deg, #6366f1, #a855f7) !important;
   border-radius: 10px !important;
@@ -486,7 +463,7 @@ nav {
   box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5) !important;
 }
 
-/* Links do Formulário */
+
 .login-links {
   display: flex;
   justify-content: space-between;
@@ -521,28 +498,26 @@ nav {
   text-decoration: underline;
 }
 
-/* ==========================================================================
-   TIMER POMODORO (TEMA DARK NEON ROXO)
-   ========================================================================== */
+
 .pomodoro-card {
   background-color: #111827 !important;
-  border: 1px solid #a855f7 !important; /* Borda Roxa Neon */
+  border: 1px solid #a855f7 !important; 
   border-radius: 16px !important;
   padding: 24px !important;
   text-align: center;
   box-shadow:
     0 0 15px rgba(168, 85, 247, 0.25),
-    0 10px 15px -3px rgba(0, 0, 0, 0.3) !important; /* Brilho Neon */
+    0 10px 15px -3px rgba(0, 0, 0, 0.3) !important; 
   position: relative;
   overflow: hidden;
   margin-bottom: 30px;
 }
 
 .pomodoro-header span {
-  text-shadow: 0 0 8px rgba(168, 85, 247, 0.6); /* Brilho no texto de Status */
+  text-shadow: 0 0 8px rgba(168, 85, 247, 0.6); 
 }
 
-/* Números grandes em destaque com brilho sutil */
+
 .pomodoro-time {
   font-size: 3.5rem !important;
   font-family: "Courier New", Courier, monospace;
@@ -559,7 +534,7 @@ nav {
   margin-top: 20px;
 }
 
-/* Botões com estilo Neon circular */
+
 .pomodoro-controls button {
   background: rgba(168, 85, 247, 0.05) !important;
   border: 1px solid rgba(168, 85, 247, 0.4) !important;
@@ -576,7 +551,7 @@ nav {
 .pomodoro-controls button:hover {
   background: rgba(168, 85, 247, 0.2) !important;
   border-color: #c084fc !important;
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.6) !important; /* Brilho ao passar o mouse */
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.6) !important;
   transform: translateY(-2px);
 }
 
@@ -585,29 +560,25 @@ nav {
   margin: 0 !important;
 }
 
-/* ==========================================================================
-   CARDS DE ESTATÍSTICAS (TEMA NEON ROXO)
-   ========================================================================== */
 .stat-card {
   background-color: #111827 !important;
-  border: 1px solid rgba(168, 85, 247, 0.2) !important; /* Borda roxa bem sutil por padrão */
+  border: 1px solid rgba(168, 85, 247, 0.2) !important; 
   border-radius: 16px !important;
   padding: 24px !important;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25) !important;
-  transition: all 0.3s ease-in-out !important; /* Transição suave para o brilho */
+  transition: all 0.3s ease-in-out !important;
 }
 
-/* Efeito Neon ao passar o mouse (Hover) */
+
 .stat-card:hover {
-  transform: translateY(-4px); /* Dá uma leve flutuada */
-  border-color: #a855f7 !important; /* Borda fica totalmente roxa neon */
+  transform: translateY(-4px); 
+  border-color: #a855f7 !important; 
   box-shadow:
     0 0 20px rgba(168, 85, 247, 0.4),
-    0 10px 20px rgba(0, 0, 0, 0.4) !important; /* Brilho neon roxo */
+    0 10px 20px rgba(0, 0, 0, 0.4) !important; 
 }
 
-/* Brilho neon sutil para os números gigantes dentro dos cards */
 .stat-card h5,
 .stat-card h3,
 .stat-card .card-title {
@@ -616,16 +587,13 @@ nav {
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
-/* Realce sutil nos ícones para acompanhar o tema */
+
 .stat-card i.material-icons {
   filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.3));
 }
 
-/* ==========================================================================
-   EFEITOS NEON PARA LOGO E TEXTOS (GLOW EFFECT)
-   ========================================================================== */
 
-/* Neon Roxo para Textos (como o "Flow" ou títulos) */
+
 .text-neon-purple {
   color: #ffffff !important;
   text-shadow:
@@ -634,7 +602,7 @@ nav {
     0 0 20px rgba(168, 85, 247, 1) !important;
 }
 
-/* Neon Azul/Indigo para Textos (como "Book" ou links principais) */
+
 .text-neon-blue {
   color: #ffffff !important;
   text-shadow:
@@ -643,26 +611,26 @@ nav {
     0 0 20px rgba(99, 102, 241, 1) !important;
 }
 
-/* Neon sutil para os textos comuns de boas-vindas e labels */
+
 .text-neon-subtle {
-  color: #e9d5ff !important; /* Lilás claro */
+  color: #e9d5ff !important; 
   text-shadow: 0 0 8px rgba(168, 85, 247, 0.4) !important;
 }
 
-/* Efeito Neon na Logomarca (Texto + Ícone de Livro/Material Icons) */
+
 .logo-neon {
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
 
-/* Brilho no ícone de livro da Logo */
+
 .logo-neon i.material-icons,
 .logo-neon img {
   filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.95)) !important;
 }
 
-/* Brilho nas letras da Logo */
+
 .logo-neon-text {
   font-weight: 800 !important;
   letter-spacing: 0.5px;
@@ -682,11 +650,7 @@ nav {
     0 0 12px rgba(168, 85, 247, 0.9) !important;
 }
 
-/* ==========================================================================
-   BOTÕES PERSONALIZADOS COM TEMA NEON ROXO (GLOW BUTTONS)
-   ========================================================================== */
 
-/* Botão "Adicionar Livro" */
 .btn-neon-purple {
   background-color: rgba(168, 85, 247, 0.1) !important;
   border: 1px solid #a855f7 !important;
@@ -708,7 +672,7 @@ nav {
   color: #ffffff !important;
 }
 
-/* Botão do Modal "Salvar Livro" */
+
 .btn-modal-save {
   background-color: rgba(168, 85, 247, 0.1) !important;
   border: 1px solid #a855f7 !important;

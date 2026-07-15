@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Garante que apenas usuários logados via requisição POST acessem
+
 if (!isset($_SESSION['usuario_id']) || $_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: ../VIEW/login.php");
     exit;
@@ -17,6 +17,6 @@ if ($livro_id) {
     $livroDAL->excluir($livro_id, $usuario_id);
 }
 
-// Redireciona de volta para o dashboard atualizado
+
 header("Location: ../VIEW/dashboard.php");
 exit;

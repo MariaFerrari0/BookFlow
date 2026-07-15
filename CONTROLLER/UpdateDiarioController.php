@@ -17,11 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($livro_id && !empty($anotacao)) {
         $livroDAL = new LivroDAL();
         
-        // Garante a segurança: o livro realmente pertence ao usuário logado?
+        
         $livro = $livroDAL->buscarPorId($livro_id);
         if ($livro && $livro->getUsuarioId() === $usuario_id) {
             
-            // Salva na tabela diario_leitura
+           
             $sucesso = $livroDAL->adicionarAnotacaoDiario($livro_id, $anotacao);
             
             if ($sucesso) {

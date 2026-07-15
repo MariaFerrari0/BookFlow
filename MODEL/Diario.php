@@ -48,7 +48,7 @@ class Diario {
         return $this->anotacao;
     }
 
-    // Formata a data para o formato amigável brasileiro (dd/mm/aaaa)
+   
     public function getDataFormatada(): string {
         $timestamp = strtotime($this->data_registro);
         return date('d/m/Y', $timestamp);

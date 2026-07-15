@@ -25,7 +25,7 @@
         </div>
 
         <div class="login-form-wrapper">
-            <h4 class="text-neon-purple" style="font-weight: 700;">Bem-vindo de volta! 👋</h4>
+            <h4 class="text-neon-purple" style="font-weight: 700;">Bem-vindo de volta! </h4>
             <p class="subtitle text-neon-subtle">Faça login para continuar</p>
 
             <?php if (isset($_GET['erro'])): ?>

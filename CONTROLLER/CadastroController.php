@@ -11,21 +11,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($nome && $email && $senha) {
         $userDAL = new UserDAL();
 
-        // 1. Verifica se o e-mail já está cadastrado para evitar duplicados
+       
         if ($userDAL->buscarPorEmail($email) !== null) {
             header("Location: ../VIEW/cadastro.php?erro=email_existente");
             exit;
         }
 
-        // 2. Criptografa de forma correta e segura a senha
+        
         $senhaHash = password_hash($senha, PASSWORD_BCRYPT);
 
-        // 3. Instancia o Model de Usuário com a senha criptografada
+    
         $novoUsuario = new User(null, $nome, $email, $senhaHash);
 
-        // 4. Salva no banco de dados
+      
         if ($userDAL->cadastrar($novoUsuario)) {
-            // Sucesso! Redireciona para o login com parâmetro de sucesso
+           
             header("Location: ../VIEW/login.php?cadastro=sucesso");
             exit;
         } else {

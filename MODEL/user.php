@@ -13,7 +13,7 @@ class User {
         $this->senha = $senha;
     }
 
-    // Métodos para pegar (Get) e salvar (Set) as informações de forma segura
+    
     public function getId() { return $this->id; }
     public function getNome() { return $this->nome; }
     public function getEmail() { return $this->email; }
